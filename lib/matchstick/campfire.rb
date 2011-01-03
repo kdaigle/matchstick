@@ -20,12 +20,12 @@ module Matchstick
 
     def get(action)
       response = RestClient.get "#{connection}/#{action}", :content_type => :json, :accept => :json
-      JSON.parse(response.body)
+      response.body.strip.empty? ? true : JSON.parse(response.body)
     end
 
     def post(action, body = {})
       response = RestClient.post "#{connection}/#{action}", body.to_json, :content_type => :json, :accept => :json
-      JSON.parse(response.body)
+      response.body.strip.empty? ? true : JSON.parse(response.body)
     end
 
   protected

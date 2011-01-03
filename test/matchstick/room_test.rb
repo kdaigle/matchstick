@@ -37,13 +37,17 @@ class RoomTest < Test::Unit::TestCase
     end
 
     should "join this room" do
-      @room.expects(:post).with("room/12345/join")
+      response = RestClient::Response.create(" ", 200, {})
+
+      RestClient.expects(:post).with( *post_rest_client_arguments("room/12345/join") ).returns(response)
 
       @room.join
     end
 
     should "leave this room" do
-      @room.expects(:post).with("room/12345/leave")
+      response = RestClient::Response.create(" ", 200, {})
+
+      RestClient.expects(:post).with( *post_rest_client_arguments("room/12345/leave") ).returns(response)
 
       @room.leave
     end
