@@ -1,8 +1,8 @@
 require 'helper'
 
-class TestMatchstick < Test::Unit::TestCase
+class CampfireTest < Test::Unit::TestCase
 
-  context "With a matchstick connection" do
+  context "With a matchstick" do
 
     setup do
       @matchstick = Matchstick::Campfire.new("samplebusiness", "123abc", true)
