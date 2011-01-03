@@ -17,4 +17,9 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'matchstick'
 
 class Test::Unit::TestCase
+
+  def post_rest_client_arguments(action, message={})
+    ["#{@connection}/#{action}", message.to_json, {:content_type => :json, :accept => :json}]
+  end
+
 end

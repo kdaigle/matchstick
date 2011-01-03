@@ -20,6 +20,22 @@ class CampfireTest < Test::Unit::TestCase
       assert_equal "https://123abc:x@samplebusiness.campfirenow.com", @matchstick.connection
     end
 
+    should "return and build a set of rooms" do
+      json_string = {"rooms" => [
+        {"id" => 1, "name" => "Business"},
+        {"id" => 2, "name" => "Funtimes"}
+      ]}.to_json.to_s
+
+      response = RestClient::Response.create(json_string, 200, {})
+
+      RestClient.expects(:get).with("https://123abc:x@samplebusiness.campfirenow.com/rooms", {:content_type => :json, :accept => :json}).returns(response)
+
+      result = @matchstick.rooms
+
+      assert_equal 2, result.size
+      assert result.all? {|r| r.instance_of?(Matchstick::Room) }
+    end
+
   end
 
 end
