@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "lib/matchstick.rb",
     "lib/matchstick/campfire.rb",
     "lib/matchstick/room.rb",
+    "matchstick.gemspec",
     "test/helper.rb",
     "test/matchstick/campfire_test.rb",
     "test/matchstick/room_test.rb"
