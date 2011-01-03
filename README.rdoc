@@ -1,9 +1,9 @@
 = matchstick
 
-Description goes here.
+This is the beginnings of a stable framework for communicating with Campfire. Currently, completely and utterly alpha.
 
 == Contributing to matchstick
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
