@@ -16,7 +16,7 @@ module Matchstick
       })
     end
 
-    def paste
+    def paste(message)
       post("room/#{@id}/speak", {:message =>
         {:type => "PasteMessage", :body => message}
       })

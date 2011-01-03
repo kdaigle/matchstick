@@ -33,11 +33,19 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+require 'cover_me'
+namespace :cover_me do
+
+  desc "Run the cover_me rport"
+  task :report do
+    require 'cover_me'
+    CoverMe.complete!
+  end
+
+end
+
+task :test do
+  Rake::Task['cover_me:report'].invoke
 end
 
 task :default => :test
